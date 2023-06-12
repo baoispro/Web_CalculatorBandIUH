@@ -1,0 +1,21 @@
+table,th,td{
+    border: 1px solid black;
+    text-align: center;
+}
+
+input{
+    border: none;
+}
+
+input:focus-visible{
+    outline: none;
+}
+
+#result{
+    border: 2px solid black;
+    margin: 2rem 10rem;
+}
+
+#history-search{
+    margin: 2rem 10rem;
+}
