@@ -19,3 +19,16 @@ input:focus-visible{
 #history-search{
     margin: 2rem 10rem;
 }
+
+/* reponsive */
+@media only screen and (max-width:600px) {
+    .w-75{
+        width: 100% !important;
+    }
+    #result{
+        margin: 2rem 2rem;
+    }
+    #history-search{
+        margin: 2rem 2rem;
+    }
+}
