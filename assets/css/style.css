@@ -1,3 +1,6 @@
+.cursor{
+    cursor: pointer;
+}
 table,th,td{
     border: 1px solid black;
     text-align: center;
@@ -26,6 +29,18 @@ input:focus-visible{
 
 #TBHK{
     display: none;
+}
+
+#tab{
+    background-color: #f1f1f1;
+}
+
+.active{
+    background-color: #ccc;
+}
+
+.tab-btn:hover{
+    background-color: #ddd;
 }
 
 /* reponsive */

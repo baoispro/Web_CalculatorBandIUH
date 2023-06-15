@@ -143,6 +143,11 @@
     
     <div id="history-search" class="d-flex flex-column pt-3">
         <h6>lịch sử tìm kiếm</h6>
+        <div id="tab" class="d-flex">
+            <div class="p-2 cursor tab-btn active" onclick="changeTab(this)">Môn học</div>
+            <div class="p-2 cursor tab-btn" onclick="changeTab(this)">Học kì</div>
+            <div class="p-2 cursor tab-btn" onclick="changeTab(this)">Tích lũy</div>
+        </div>
         <span class="text-danger">lưu ý:(số đầu là: số tín chỉ, số thứ 2 là điểm tổng kết, số cuối là thang điểm 4)</span>
         <textarea name="" id="history-area" cols="60" rows="10" readonly></textarea>
     </div>

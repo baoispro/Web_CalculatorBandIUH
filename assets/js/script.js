@@ -184,3 +184,11 @@ function toggle(){
         TBMH.style.display = "none"
     }
 }
+
+function changeTab(element){
+    tab_active = document.getElementsByClassName("active")
+    for (var i = 0; i < tab_active.length; i++) {
+        tab_active[i].classList.remove("active");
+    }
+    element.classList.add("active")
+}
