@@ -20,6 +20,14 @@ input:focus-visible{
     margin: 2rem 10rem;
 }
 
+#select{
+    margin: 1rem 10rem;
+}
+
+#TBHK{
+    display: none;
+}
+
 /* reponsive */
 @media only screen and (max-width:600px) {
     .w-75{

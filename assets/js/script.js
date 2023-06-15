@@ -21,7 +21,9 @@ diemChu = document.getElementById("dc")
 xepLoai = document.getElementById("xl")
 dat = document.getElementById("dat")
 history_area = document.getElementById("history-area")
-
+select = document.getElementById("select")
+TBHK = document.getElementById("TBHK")
+TBMH = document.getElementById("TBMH")
 
 var diemThuongXuyen = [tx1,tx2,tx3,tx4,tx5,tx6,tx7,tx8,tx9]
 var diemThucHanh = [th1,th2,th3,th4,th5]
@@ -35,20 +37,41 @@ function tinhDiem() {
     var kq;
     var tbDiemThuongXuyen = tinhDiemCoNhieuCot(diemThuongXuyen);
     var tbDiemThucHanh = tinhDiemCoNhieuCot(diemThucHanh);
-    if(!tbDiemThuongXuyen || !giuaKi.value || !cuoiKi.value|| !soTinChi.value){
-        diemTongKet.innerHTML +="";
+    
+    if(!soTinChi.value==false && !giuaKi.value==false && tbDiemThucHanh==null && tbDiemThuongXuyen==null && !cuoiKi.value){
+        kq=giuaKi.value
+        diemTongKet.innerHTML+= giuaKi.value
+    }
+    else if(!soTinChi.value==false && !giuaKi.value && tbDiemThucHanh!=null && tbDiemThuongXuyen==null && !cuoiKi.value){
+        kq=tbDiemThucHanh
+        diemTongKet.innerHTML+= tbDiemThucHanh
+    }
+    else if(!soTinChi.value==false && !giuaKi.value && tbDiemThucHanh==null && tbDiemThuongXuyen!=null && !cuoiKi.value){
+        kq=tbDiemThuongXuyen
+        diemTongKet.innerHTML+= tbDiemThuongXuyen
+    }
+    else if(!soTinChi.value==false && !giuaKi.value && tbDiemThucHanh==null && tbDiemThuongXuyen==null && !cuoiKi.value==false){
+        kq=cuoiKi.value
+        diemTongKet.innerHTML+= cuoiKi.value
+    }
+    else if(tbDiemThucHanh==null && tbDiemThuongXuyen!=null && !giuaKi.value==false && !cuoiKi.value==false && !soTinChi.value==false){
+        kq = ((tbDiemThuongXuyen*20+giuaKi.value*30+cuoiKi.value*50)/100).toFixed(1)
+        diemTongKet.innerHTML += ((tbDiemThuongXuyen*20+giuaKi.value*30+cuoiKi.value*50)/100).toFixed(1)
+    }
+    else if(tbDiemThuongXuyen==null && !giuaKi.value && !cuoiKi.value && !soTinChi.value==false){
+        kq=tbDiemThucHanh;
+        diemTongKet.innerHTML+=tbDiemThucHanh
+    }
+    else if(tbDiemThucHanh!=null && tbDiemThuongXuyen!=null && !giuaKi.value==false && !cuoiKi.value==false && !soTinChi.value==false){
+        kq = ((((tbDiemThuongXuyen * 20 + giuaKi.value * 30 + cuoiKi.value * 50) / 100)*(soTinChi.value-1)+parseFloat(tbDiemThucHanh))/soTinChi.value).toFixed(1)
+        diemTongKet.innerHTML += ((((tbDiemThuongXuyen * 20 + giuaKi.value * 30 + cuoiKi.value * 50) / 100)*(soTinChi.value-1)+parseFloat(tbDiemThucHanh))/soTinChi.value).toFixed(1)
+    }
+    else{
+        diemTongKet.innerHTML +="Không thể tính được do thiếu dữ liệu";
         thangDiemBon.innerHTML += ""
         diemChu.innerHTML += ""
         xepLoai.innerHTML += ""
         dat.innerHTML +=""
-    }
-    else if(tbDiemThucHanh==null){
-        kq = ((tbDiemThuongXuyen*20+giuaKi.value*30+cuoiKi.value*50)/100).toFixed(1)
-        diemTongKet.innerHTML += ((tbDiemThuongXuyen*20+giuaKi.value*30+cuoiKi.value*50)/100).toFixed(1)
-    }
-    else{
-        kq = ((((tbDiemThuongXuyen * 20 + giuaKi.value * 30 + cuoiKi.value * 50) / 100)*(soTinChi.value-1)+parseFloat(tbDiemThucHanh))/soTinChi.value).toFixed(1)
-        diemTongKet.innerHTML += ((((tbDiemThuongXuyen * 20 + giuaKi.value * 30 + cuoiKi.value * 50) / 100)*(soTinChi.value-1)+parseFloat(tbDiemThucHanh))/soTinChi.value).toFixed(1)
     }
     if(kq>=9 && kq<=10){
         thangDiemBon.innerHTML += "4.0"
@@ -149,5 +172,15 @@ function xoaTrang() {
     var input = document.querySelectorAll("input")
     for(var i=0;i<input.length;i++){
         input[i].value=""
+    }
+}
+function toggle(){
+    if(select.value=="diemTBMH"){
+        TBMH.style.display = "block"
+        TBHK.style.display = "none"
+    }
+    else{
+        TBHK.style.display = "block"
+        TBMH.style.display = "none"
     }
 }
