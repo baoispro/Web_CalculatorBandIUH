@@ -1,6 +1,11 @@
 .cursor{
     cursor: pointer;
 }
+
+.block{
+    display: block !important;
+}
+
 table,th,td{
     border: 1px solid black;
     text-align: center;
@@ -43,6 +48,21 @@ input:focus-visible{
     background-color: #ddd;
 }
 
+#btnAddColumn{
+    display: none;
+}
+
+#history-area{
+    display: none;
+}
+
+#history-area-HK{
+    display: none;
+}
+
+#history-area-TL{
+    display: none;
+}
 /* reponsive */
 @media only screen and (max-width:600px) {
     .w-75{

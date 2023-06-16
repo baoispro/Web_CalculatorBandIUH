@@ -82,74 +82,45 @@
 
     <div id="TBHK">
         <div class="d-flex justify-content-center pt-5">
-            <table class="w-75">
+            <table id="table_HK" class="w-75">
                 <tr>
-                    <th rowspan="2">Số tín chỉ <span class="text-danger">(*)</span></th>
-                    <th rowspan="2">Giữa kì<span class="text-danger">(*)</span></th>
-                    <th colspan="9">Thường xuyên<span class="text-danger">(*) ít nhất 1 cột</span></th>
-                    <th colspan="5">thực hành<span class="text-danger">(*) ít nhất 1 cột</span></th>
-                    <th rowspan="2">Cuối kì<span class="text-danger">(*)</span></th>
+                    <th>Số tín chỉ <span class="text-danger">(*)</span></th>
+                    <th>Điểm hệ 10<span class="text-danger">(*)</span></th>
+                    <th>Điểm hệ 4<span class="text-danger">(*)</span></th>
                 </tr>
                 <tr>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <th>6</th>
-                    <th>7</th>
-                    <th>8</th>
-                    <th>9</th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                </tr>
-                <tr>
-                    <td><input type="string" name="" id="tinChi" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12"></td>
-                    <td><input type="string" name="" id="giuaKi" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12"></td>
-                    <td><input type="string" name="" id="tx1" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12"></td>
-                    <td><input type="string" name="" id="tx2" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12"></td>
-                    <td><input type="string" name="" id="tx3" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12"></td>
-                    <td><input type="string" name="" id="tx4" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12"></td>
-                    <td><input type="string" name="" id="tx5" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12"></td>
-                    <td><input type="string" name="" id="tx6" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12"></td>
-                    <td><input type="string" name="" id="tx7" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12"></td>
-                    <td><input type="string" name="" id="tx8" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12"></td>
-                    <td><input type="string" name="" id="tx9" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12"></td>
-                    <td><input type="string" name="" id="th1" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12"></td>
-                    <td><input type="string" name="" id="th2" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12"></td>
-                    <td><input type="string" name="" id="th3" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12"></td>
-                    <td><input type="string" name="" id="th4" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12"></td>
-                    <td><input type="string" name="" id="th5" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12"></td>
-                    <td><input type="string" name="" id="cuoiKi" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12"></td>
+                    <td><input type="string" name="" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12 tinChi"></td>
+                    <td><input type="string" name="" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12 he10"></td>
+                    <td><input type="string" name="" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12 he4"></td>
                 </tr>
             </table>
         </div>
         <div class="d-flex justify-content-center pt-3" style="gap: 20px;">
-            <button onclick="tinhDiem()">Tính điểm</button>
+            <button onclick="tinhDiemHK()">Tính điểm</button>
+            <button id="btnAddColumn" onclick="addColumn()">Thêm cột</button>
             <button onclick="xoaTrang()">Xóa trắng</button>
         </div>
         <div id="result" class="d-flex flex-column p-2">
             <h6 class="text-center">Kết quả</h6>
-            <p class="fw-bold" id="dtk">Điểm trung bình học kì hệ 4:&nbsp;</p>
-            <p class="fw-bold" id="td4">Thang điểm 4:&nbsp;</p>
-            <p class="fw-bold" id="dc">Điểm chữ:&nbsp;</p>
-            <p class="fw-bold" id="xl">Xếp loại:&nbsp;</p>
-            <p class="fw-bold" id="dat">Đạt:&nbsp;</p>
+            <p class="fw-bold" id="tb10">Điểm trung bình học kì hệ 10:&nbsp;</p>
+            <p class="fw-bold" id="tb4">Điểm trung bình học kì hệ 4:&nbsp;</p>
+            <p class="fw-bold" id="xlhl">Xếp loại học lực học kì:&nbsp;</p>
+            <!-- <p class="fw-bold" id="xl">Học bổng:&nbsp;</p> -->
+            <!-- Sau khi có thời gian rảnh update chức năng học bổng bằng datalist -->
         </div>
     </div>
     
     <div id="history-search" class="d-flex flex-column pt-3">
         <h6>lịch sử tìm kiếm</h6>
         <div id="tab" class="d-flex">
-            <div class="p-2 cursor tab-btn active" onclick="changeTab(this)">Môn học</div>
-            <div class="p-2 cursor tab-btn" onclick="changeTab(this)">Học kì</div>
-            <div class="p-2 cursor tab-btn" onclick="changeTab(this)">Tích lũy</div>
+            <div class="p-2 cursor tab-btn active" onclick="changeTab(this,'history-area','lưu ý:(số đầu là: số tín chỉ, số thứ 2 là điểm tổng kết, số cuối là thang điểm 4)')">Môn học</div>
+            <div class="p-2 cursor tab-btn" onclick="changeTab(this,'history-area-HK','lưu ý:(số đầu là: số tín chỉ, số thứ 2 là điểm trung bình học kì hệ 10, số cuối là điểm trung bình học kì hệ 4)')">Học kì</div>
+            <div class="p-2 cursor tab-btn" onclick="changeTab(this,'history-area-TL','lưu ý:(số đầu là: số tín chỉ, số thứ 2 là điểm trung bình tích lũy hệ 10, số cuối là điểm trung bình học kì hệ 4)')">Tích lũy</div>
         </div>
-        <span class="text-danger">lưu ý:(số đầu là: số tín chỉ, số thứ 2 là điểm tổng kết, số cuối là thang điểm 4)</span>
-        <textarea name="" id="history-area" cols="60" rows="10" readonly></textarea>
+        <span id="luuY" class="text-danger">lưu ý:(số đầu là: số tín chỉ, số thứ 2 là điểm tổng kết, số cuối là thang điểm 4)</span>
+        <textarea name="" id="history-area" class="block" cols="60" rows="10" readonly></textarea>
+        <textarea name="" id="history-area-HK" cols="60" rows="10" readonly></textarea>
+        <textarea name="" id="history-area-TL" cols="60" rows="10" readonly></textarea>
     </div>
     <script src="assets/js/script.js"></script>
 </body>
