@@ -18,6 +18,7 @@
     <select name="" id="select" onchange="toggle()">
         <option value="diemTBMH">Điểm trung bình môn học</option>
         <option value="diemTBHK">Điểm trung bình học kì</option>
+        <option value="diemTBTL">Điểm trung bình tích lũy</option>
     </select>
     <div id="TBMH">
         <div class="d-flex justify-content-center pt-5">
@@ -85,8 +86,8 @@
             <table id="table_HK" class="w-75">
                 <tr>
                     <th>Số tín chỉ <span class="text-danger">(*)</span></th>
-                    <th>Điểm hệ 10<span class="text-danger">(*)</span></th>
-                    <th>Điểm hệ 4<span class="text-danger">(*)</span></th>
+                    <th>Điểm tb môn học hệ 10<span class="text-danger">(*)</span></th>
+                    <th>Điểm tb môn học hệ 4<span class="text-danger">(*)</span></th>
                 </tr>
                 <tr>
                     <td><input type="string" name="" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12 tinChi"></td>
@@ -98,7 +99,7 @@
         <div class="d-flex justify-content-center pt-3" style="gap: 20px;">
             <button onclick="tinhDiemHK()">Tính điểm</button>
             <button id="btnAddColumn" onclick="addColumn()">Thêm cột</button>
-            <button onclick="xoaTrang()">Xóa trắng</button>
+            <button onclick="xoaTrangHK()">Xóa trắng</button>
         </div>
         <div id="result" class="d-flex flex-column p-2">
             <h6 class="text-center">Kết quả</h6>
@@ -107,6 +108,34 @@
             <p class="fw-bold" id="xlhl">Xếp loại học lực học kì:&nbsp;</p>
             <!-- <p class="fw-bold" id="xl">Học bổng:&nbsp;</p> -->
             <!-- Sau khi có thời gian rảnh update chức năng học bổng bằng datalist -->
+        </div>
+    </div>
+
+    <div id="TBTL">
+        <div class="d-flex justify-content-center pt-5">
+            <table id="table_HK" class="w-75">
+                <tr>
+                    <th>Số tín chỉ <span class="text-danger">(*)</span></th>
+                    <th>Điểm tb học kì hệ 10<span class="text-danger">(*)</span></th>
+                    <th>Điểm tb học kì hệ 4<span class="text-danger">(*)</span></th>
+                </tr>
+                <tr>
+                    <td><input type="string" name="" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12 tinChi"></td>
+                    <td><input type="string" name="" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12 he10"></td>
+                    <td><input type="string" name="" class="col-xl-12 col-md-12 col-lg-12 col-xxl-12 col-sm-12 col-xs-12 col-12 he4"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="d-flex justify-content-center pt-3" style="gap: 20px;">
+            <button onclick="tinhDiemHK()">Tính điểm</button>
+            <button id="btnAddColumnTL" onclick="addColumn()">Thêm cột</button>
+            <button onclick="xoaTrangHK()">Xóa trắng</button>
+        </div>
+        <div id="result" class="d-flex flex-column p-2">
+            <h6 class="text-center">Kết quả</h6>
+            <p class="fw-bold" id="tbtl10">Điểm trung bình tích lũy hệ 10:&nbsp;</p>
+            <p class="fw-bold" id="tbtl4">Điểm trung bình tích lũy hệ 4:&nbsp;</p>
+            <p class="fw-bold" id="xltl">Xếp loại học lực tích lũy:&nbsp;</p>
         </div>
     </div>
     

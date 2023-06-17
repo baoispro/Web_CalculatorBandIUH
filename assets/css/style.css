@@ -36,6 +36,10 @@ input:focus-visible{
     display: none;
 }
 
+#TBTL{
+    display: none;
+}
+
 #tab{
     background-color: #f1f1f1;
 }
@@ -49,6 +53,10 @@ input:focus-visible{
 }
 
 #btnAddColumn{
+    display: none;
+}
+
+#btnAddColumnTL{
     display: none;
 }
 

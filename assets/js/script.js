@@ -25,8 +25,10 @@ select = document.getElementById("select")
 TBHK = document.getElementById("TBHK")
 TBMH = document.getElementById("TBMH")
 btnAddColumn = document.getElementById("btnAddColumn")
+btnAddColumnTL = document.getElementById("btnAddColumnTL")
 history_area_HK=document.getElementById("history-area-HK")
 history_area_TL=document.getElementById("history-area-TL")
+TBTL = document.getElementById("TBTL")
 
 var diemThuongXuyen = [tx1,tx2,tx3,tx4,tx5,tx6,tx7,tx8,tx9]
 var diemThucHanh = [th1,th2,th3,th4,th5]
@@ -181,12 +183,23 @@ function toggle(){
     if(select.value=="diemTBMH"){
         TBMH.style.display = "block"
         TBHK.style.display = "none"
+        TBTL.style.display = "none"
         btnAddColumn.style.display = "none"
+        btnAddColumnTL.style.display = "none"
+    }
+    else if(select.value=="diemTBTL"){
+        TBHK.style.display = "none"
+        TBMH.style.display = "none"
+        TBTL.style.display = "block"
+        btnAddColumn.style.display = "none"
+        btnAddColumnTL.style.display = "block"
     }
     else{
         TBHK.style.display = "block"
         TBMH.style.display = "none"
+        TBTL.style.display = "none"
         btnAddColumn.style.display = "block"
+        btnAddColumnTL.style.display = "none"
     }
 }
 
@@ -289,5 +302,26 @@ function tinhDiemHK(){
     }
     else{
         tb10.innerHTML+="Không đủ dữ kiện để tính"
+    }
+}
+
+function xoaTrangHK() {
+    var table_HK = document.getElementById("table_HK");
+    for (let index = table_HK.rows.length - 1; index > 1; index--) {
+        table_HK.deleteRow(index);
+    }
+    var tb10= document.getElementById("tb10")
+    var tb4= document.getElementById("tb4")
+    var xlhl= document.getElementById("xlhl")
+    tb10.innerHTML="Điểm trung bình học kì hệ 10:&nbsp;"
+    tb4.innerHTML ="Điểm trung bình học kì hệ 4:&nbsp;"
+    xlhl.innerHTML = "Xếp loại học lực học kì:&nbsp;"
+    var tc = document.getElementsByClassName("tinChi")
+    var td10 = document.getElementsByClassName("he10")
+    var td4 = document.getElementsByClassName("he4")
+    for (let index = 0; index < tc.length; index++) {
+        tc[index].value=""
+        td10[index].value=""
+        td4[index].value=""
     }
 }
