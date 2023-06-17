@@ -219,8 +219,8 @@ function changeTab(element,textArea,string){
     luuY.innerHTML = string
 }
 // tạo cột sẵn
-function createRow() {
-    table_HK = document.getElementById("table_HK")
+function createRow(tableName,tc,h10,h4) {
+    table_HK = document.getElementById(tableName)
     var tr = document.createElement("tr")
     table_HK.appendChild(tr)
     var td1 = document.createElement("td")
@@ -232,9 +232,9 @@ function createRow() {
     var input1 = document.createElement("input")
     var input2 = document.createElement("input")
     var input3 = document.createElement("input")
-    class1=["col-xl-12","col-md-12", "col-lg-12","col-xxl-12","col-sm-12","col-xs-12","col-12", "tinChi"]
-    class2=["col-xl-12","col-md-12", "col-lg-12","col-xxl-12","col-sm-12","col-xs-12","col-12", "he10"]
-    class3=["col-xl-12","col-md-12", "col-lg-12","col-xxl-12","col-sm-12","col-xs-12","col-12", "he4"]
+    class1=["col-xl-12","col-md-12", "col-lg-12","col-xxl-12","col-sm-12","col-xs-12","col-12", tc]
+    class2=["col-xl-12","col-md-12", "col-lg-12","col-xxl-12","col-sm-12","col-xs-12","col-12", h10]
+    class3=["col-xl-12","col-md-12", "col-lg-12","col-xxl-12","col-sm-12","col-xs-12","col-12", h4]
     class1.forEach(function(className) {
         input1.classList.add(className);
     });
@@ -250,23 +250,24 @@ function createRow() {
     td2.appendChild(input2)
     td3.appendChild(input3)
 }
-function addColumn(){
-    createRow()
+function addColumn(tableName,tc,h10,h4){
+    createRow(tableName,tc,h10,h4)
 }
 
-function tinhDiemHK(){
-    tb10= document.getElementById("tb10")
-    tb4= document.getElementById("tb4")
-    xlhl= document.getElementById("xlhl")
-    tb10.innerHTML="Điểm trung bình học kì hệ 10:&nbsp;"
-    tb4.innerHTML ="Điểm trung bình học kì hệ 4:&nbsp;"
-    xlhl.innerHTML = "Xếp loại học lực học kì:&nbsp;"
+function tinhDiemHK(kq1,kq2,kq3,string1,string2,string3,tinChi,he10,he4,historyArea){
+    var history_area_HK = document.getElementById(historyArea)
+    tb10= document.getElementById(kq1)
+    tb4= document.getElementById(kq2)
+    xlhl= document.getElementById(kq3)
+    tb10.innerHTML= string1
+    tb4.innerHTML = string2
+    xlhl.innerHTML = string3
     var tongSoTinChi = 0;
     var tongSoHe10 =0;
     var tongSoHe4 = 0;
-    var tc = document.getElementsByClassName("tinChi")
-    var td10 = document.getElementsByClassName("he10")
-    var td4 = document.getElementsByClassName("he4")
+    var tc = document.getElementsByClassName(tinChi)
+    var td10 = document.getElementsByClassName(he10)
+    var td4 = document.getElementsByClassName(he4)
     var flag = true
     for (let index = 0; index < tc.length; index++) {
         if(!tc[index].value||!td10[index].value||!td4[index].value){
@@ -305,20 +306,20 @@ function tinhDiemHK(){
     }
 }
 
-function xoaTrangHK() {
-    var table_HK = document.getElementById("table_HK");
+function xoaTrangHK(tableName,kq1,kq2,kq3,string1,string2,string3,tinchi,h10,h4) {
+    var table_HK = document.getElementById(tableName);
     for (let index = table_HK.rows.length - 1; index > 1; index--) {
         table_HK.deleteRow(index);
     }
-    var tb10= document.getElementById("tb10")
-    var tb4= document.getElementById("tb4")
-    var xlhl= document.getElementById("xlhl")
-    tb10.innerHTML="Điểm trung bình học kì hệ 10:&nbsp;"
-    tb4.innerHTML ="Điểm trung bình học kì hệ 4:&nbsp;"
-    xlhl.innerHTML = "Xếp loại học lực học kì:&nbsp;"
-    var tc = document.getElementsByClassName("tinChi")
-    var td10 = document.getElementsByClassName("he10")
-    var td4 = document.getElementsByClassName("he4")
+    var tb10= document.getElementById(kq1)
+    var tb4= document.getElementById(kq2)
+    var xlhl= document.getElementById(kq3)
+    tb10.innerHTML = string1
+    tb4.innerHTML = string2
+    xlhl.innerHTML = string3
+    var tc = document.getElementsByClassName(tinchi)
+    var td10 = document.getElementsByClassName(h10)
+    var td4 = document.getElementsByClassName(h4)
     for (let index = 0; index < tc.length; index++) {
         tc[index].value=""
         td10[index].value=""
