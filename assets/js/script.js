@@ -246,6 +246,8 @@ function tinhDiemHK(){
     tb4= document.getElementById("tb4")
     xlhl= document.getElementById("xlhl")
     tb10.innerHTML="Điểm trung bình học kì hệ 10:&nbsp;"
+    tb4.innerHTML ="Điểm trung bình học kì hệ 4:&nbsp;"
+    xlhl.innerHTML = "Xếp loại học lực học kì:&nbsp;"
     var tongSoTinChi = 0;
     var tongSoHe10 =0;
     var tongSoHe4 = 0;
@@ -264,8 +266,26 @@ function tinhDiemHK(){
             tongSoHe10+=td10[index].value*tc[index].value
             tongSoHe4+=td4[index].value*tc[index].value
         }
-        tb10.innerHTML+=(tongSoHe10/tongSoTinChi).toFixed(2)
+        tb10.innerHTML+=(tongSoHe10/tongSoTinChi).toFixed(1)
         tb4.innerHTML+=(tongSoHe4/tongSoTinChi).toFixed(2)
+        var kq = (tongSoHe4/tongSoTinChi).toFixed(2)
+        var kq10 = (tongSoHe10/tongSoTinChi).toFixed(1)
+        if(kq>=3.6 && kq<=4){
+            xlhl.innerHTML += "Xuất xắc"
+        }
+        else if(kq>=3.2 && kq<=3.59){
+            xlhl.innerHTML += "Giỏi"
+        }
+        else if(kq>=2.5 && kq<=3.19){
+            xlhl.innerHTML += "Khá"
+        }
+        else if(kq>=2 && kq<=2.49){
+            xlhl.innerHTML += "Trung bình"
+        }
+        else{
+            xlhl.innerHTML += "Yếu"
+        }
+        history_area_HK.value+="-"+tongSoTinChi+" "+"và"+" "+kq10+" "+"và"+" "+kq+"\n"
     }
     else{
         tb10.innerHTML+="Không đủ dữ kiện để tính"
