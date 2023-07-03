@@ -17,7 +17,27 @@
     <link rel="manifest" href="assets/img/site.webmanifest">
 </head>
 <body>
-    <h1 class="text-center">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/logo.png" alt="Avatar Logo" style="width:80px;" class="rounded-circle"> 
+            </a>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#select">Tính điểm</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#video_tutorial">Hướng dẫn</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="mailto:nguyenlegiabao810@gmail.com" target="_blank">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h1 class="text-center mt-5 pt-5">
         Công cụ tính điểm IUH
     </h1>
     <select name="" id="select" onchange="toggle()">
@@ -155,6 +175,12 @@
         <textarea name="" id="history-area" class="block" cols="60" rows="10" readonly></textarea>
         <textarea name="" id="history-area-HK" cols="60" rows="10" readonly></textarea>
         <textarea name="" id="history-area-TL" cols="60" rows="10" readonly></textarea>
+    </div>
+    <div id="video_tutorial" class="d-flex justify-content-center pt-3 mb-5 container">
+        <iframe width="699" height="393" src="https://www.youtube.com/embed/x7_ixLXi1jM" title="TÍNH ĐIẾM IUH | Tiện ích tính điểm dành cho sinh viên TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP TP.HCM (IUH)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="bg-black d-flex justify-content-center align-items-center">
+        <span class="cl-white">Được thực hiện bởi: baoispro</span>
     </div>
     <script src="assets/js/script.js"></script>
 </body>
